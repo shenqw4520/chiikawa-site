@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>吉伊卡哇 - 登录</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* 这里是你原来登录页的样式，保持原样不动 */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+body{
+  background-color: #fff2f7;
+  font-family: "Microsoft Yahei",sans-serif;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:100vh;
+}
+.login-box{
+  width:400px;
+  background:#ffffff;
+  padding:35px 30px;
+  border-radius:18px;
+  box-shadow: 0 4px 15px rgba(255,160,190,0.25);
+}
+.login-box h2{
+  text-align:center;
+  color:#ff78a2;
+  margin-bottom:28px;
+}
+.item{
+  margin-bottom:20px;
+}
+.item label{
+  display:block;
+  color:#555;
+  margin-bottom:8px;
+}
+.item input{
+  width:100%;
+  height:44px;
+  border:1px solid #ffc8da;
+  border-radius:10px;
+  padding:0 14px;
+  outline:none;
+  font-size:15px;
+}
+.item input:focus{
+  border-color:#ff78a2;
+}
+.remember{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  margin-bottom:24px;
+}
+.login-btn{
+  width:100%;
+  height:46px;
+  background:#ff78a2;
+  color:#fff;
+  border:none;
+  border-radius:10px;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.2s;
+}
+.login-btn:hover{
+  background:#ff5c8c;
+}
+.register-tip{
+  text-align:center;
+  margin-top:20px;
+  color:#666;
+}
+.register-tip a{
+  color:#ff78a2;
+  text-decoration:none;
+}
+</style>
+</head>
+<body>
+<div class="login-box">
+  <h2>吉伊卡哇 账号登录</h2>
+  <form id="loginForm">
+    <div class="item">
+      <label>账号</label>
+      <input type="text" id="username" placeholder="请输入初始账号：jykw520">
+    </div>
+    <div class="item">
+      <label>密码</label>
+      <input type="password" id="pwd" placeholder="请输入初始密码12345678">
+    </div>
+    <div class="remember">
+      <input type="checkbox" id="remember">
+      <label for="remember">记住我</label>
+    </div>
+    <button type="submit" class="login-btn">登录</button>
+  </form>
+  <div class="register-tip">
+    还没有账号？<a href="#">立即注册</a>
+  </div>
+</div>
+
+<!-- ========== 新增登录校验JS，只加这里，界面完全不变 ========== -->
+<script>
+const loginForm = document.getElementById('loginForm');
+loginForm.addEventListener('submit',function(e){
+  e.preventDefault(); // 阻止表单默认提交
+  const user = document.getElementById('username').value.trim();
+  const pwd = document.getElementById('pwd').value.trim();
+  // 指定账号密码
+  if(user === 'jykw520' && pwd === '12345678'){
+    alert('登录成功！');
+    location.href = 'index.html'; // 跳转到首页
+  }else{
+    alert('账号或密码错误，请重新输入！');
+  }
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>故事设定 - 吉伊卡哇</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* 左右分栏容器 */
+        .story-wrap {
+            display: flex;
+            gap: 35px;
+            align-items: center;
+            margin-top: 30px;
+        }
+        /* 左侧图片区域 */
+        .story-img-box {
+            flex: 0 0 42%;
+        }
+        .story-img-box img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        /* 右侧文字内容 */
+        .text-content {
+            flex: 1;
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            text-align: left;
+        }
+        /* 小标题样式，粉色主题搭配装饰边线 */
+        .text-content h2 {
+            color: #ff7ba7;
+            margin: 25px 0 15px;
+            font-size: 20px;
+            border-left: 4px solid #ffd1e0;
+            padding-left: 10px;
+        }
+        /* 第一个标题取消上边距 */
+        .text-content h2:first-of-type {
+            margin-top: 0;
+        }
+        /* 段落首行自动空两格（两个汉字宽度缩进） */
+        .text-content p {
+            margin-bottom: 18px;
+            font-size: 16px;
+            line-height: 1.8;
+            text-indent: 2em;
+        }
+        /* 手机端自动变成上下布局 */
+        @media (max-width:900px) {
+            .story-wrap {
+                flex-direction: column;
+            }
+            .story-img-box {
+                width: 80%;
+                flex: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Chiikawa • 吉伊卡哇</div>
+        <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="jieshao.html">角色</a></li>
+            <li><a href="gushi.html" class="active">故事</a></li>
+            <li><a href="zhoubian.html">周边</a></li>
+            <li><a href="login.html">登录</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <h1>📖 故事设定 📖</h1>
+        <!-- 左图右文外层容器 -->
+        <div class="story-wrap">
+            <!-- 左边海滩插画 -->
+            <div class="story-img-box">
+                <img src="images/5.jpg" alt="吉伊卡哇海滩治愈插画">
+            </div>
+            <!-- 右边文字内容 -->
+            <div class="text-content">
+                <h2>动画制作与引进信息</h2>
+                <p>电视动画《吉伊卡哇》改编自日本漫画家ナガノ2020年起在网络连载的同名漫画，2021年10月28日宣布由动画工房制作动画，2022年4月4日登陆富士电视台每周五6点40分首播，2023年由北京杰外动漫文化股份有限公司引进中国，2024年1月1日在哔哩哔哩、抖音平台更新。</p>
+
+                <h2>世界观与剧情内核</h2>
+                <p>作品围绕被称为"小可爱"（源自日语「なんか小さくてかわいいやつ」缩写）的迷你生物群体，讲述他们在充满怪物与杂草的反乌托邦世界中，通过日常挑战传递友情与勇气的故事。</p>
+                <p>吉伊卡哇的世界是一个**温柔又治愈**的小世界，没有激烈的冲突，只有日常的小冒险、小温暖和小努力。</p>
+                <p>主角们每天认真生活、互相陪伴，一起面对困难，一起分享快乐，用最简单的方式传递温暖与勇气。</p>
+                <p>作品风格轻松治愈，适合所有年龄段观看，是疲惫生活里的温柔小光。</p>
+                <p>故事里既有打工、考试、讨伐魔物的压力烦恼，也有伙伴彼此扶持、一起看海野餐的细碎幸福，精准戳中普通人生活里的心酸与柔软，治愈无数读者。</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Chiikawa 吉伊卡哇 可爱主题网站 &copy; 2026</p>
+    </footer>
+</body>
+</html>

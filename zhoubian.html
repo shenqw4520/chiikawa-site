@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>周边商品 - 吉伊卡哇</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* 分类标题样式 */
+        .cate-title {
+            color: #ff7ba7;
+            margin: 40px 0 20px;
+            font-size: 24px;
+            text-align: left;
+            border-bottom: 2px solid #ffd1e0;
+            padding-bottom: 8px;
+        }
+        /* 商品卡片容器 电脑一行4个布局 */
+        .card-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 22px;
+            justify-content: flex-start;
+            margin-bottom: 10px;
+        }
+        /* 商品卡片基础样式 */
+        .card {
+            background: white;
+            width: 210px;
+            padding: 18px;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
+        /* 悬浮上浮+浅粉色变色特效 */
+        .card:hover {
+            transform: translateY(-6px);
+            background-color: #fff0f5;
+            box-shadow: 0 9px 20px rgba(255, 123, 167, 0.3);
+        }
+        /* 点击按压反馈 */
+        .card:active {
+            transform: translateY(-2px) scale(0.97);
+        }
+        /* 商品图片样式 */
+        .goods-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 12px;
+        }
+        .card h3 {
+            color: #ff7ba7;
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+        .card p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #555;
+        }
+        /* 多尺寸电脑自适应 */
+        @media (min-width:1200px) and (max-width:1439px) {
+            .card {width: 190px;}
+        }
+        @media (min-width:992px) and (max-width:1199px) {
+            .card {width: 190px;}
+        }
+        @media (min-width:768px) and (max-width:991px) {
+            .card {width: 165px;}
+        }
+        /* 手机端适配 */
+        @media (max-width:767px) {
+            .card-list {justify-content: center;}
+            .card {width: 85%;max-width:300px;}
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Chiikawa • 吉伊卡哇</div>
+        <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="jieshao.html">角色</a></li>
+            <li><a href="gushi.html">故事</a></li>
+            <li><a href="zhoubian.html" class="active">周边</a></li>
+            <li><a href="login.html">登录</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <h1>🎁 热门周边 🎁</h1>
+
+        <!-- 分类1：包袋&毛绒玩偶挂件 -->
+        <h2 class="cate-title">一、包袋与毛绒挂饰</h2>
+        <div class="card-list">
+            <div class="card">
+                <img src="images/包包.jpg" alt="Baby绗缝托特包" class="goods-img">
+                <h3>Baby绗缝托特包</h3>
+                <p>柔软棉料大容量，有吉伊、小八、乌萨奇三款图案，通勤母婴两用。</p>
+            </div>
+            <div class="card">
+                <img src="images/书包.jpg" alt="满印迷你双肩包" class="goods-img">
+                <h3>满印迷你双肩背包</h3>
+                <p>仅360g超轻尺寸，全员满印图案，学生随身小包，自带提手。</p>
+            </div>
+            <div class="card">
+                <img src="images/玩偶.jpg" alt="嫩芽毛绒挂件" class="goods-img">
+                <h3>嫩芽毛绒公仔挂件</h3>
+                <p>软萌立体玩偶挂链，吉伊、哈奇瓦力、乌萨奇三款，装饰包包钥匙。</p>
+            </div>
+            <div class="card">
+                <img src="images/挂件.jpg" alt="串珠钥匙挂链" class="goods-img">
+                <h3>马卡龙串珠钥匙链</h3>
+                <p>透色串珠搭配亚克力角色吊牌，分蓝系、粉系两套组合。</p>
+            </div>
+        </div>
+
+        <!-- 分类2：餐厨日用器皿 -->
+        <h2 class="cate-title">二、餐厨生活用品</h2>
+        <div class="card-list">
+            <div class="card">
+                <img src="images/杯子.png" alt="浮雕马克杯" class="goods-img">
+                <h3>浮雕陶瓷马克杯</h3>
+                <p>400ml大容量立体浮雕设计，异形把手，三款主角配色可选。</p>
+            </div>
+            <div class="card">
+                <img src="images/盘子.jpg" alt="三人陶瓷餐盘" class="goods-img">
+                <h3>主角三人陶瓷餐盘</h3>
+                <p>奶黄色浅瓷盘，边缘碎花包边，日常吃饭摆盘颜值很高。</p>
+            </div>
+        </div>
+
+        <!-- 分类3：出行交通配饰 -->
+        <h2 class="cate-title">三、出行配饰小件</h2>
+        <div class="card-list">
+            <div class="card">
+                <img src="images/雨伞.png" alt="樱花折叠晴雨伞" class="goods-img">
+                <h3>樱花折叠晴雨伞</h3>
+                <p>浅粉渐变伞面，印有三位主角，五折便携，防晒防雨两用。</p>
+            </div>
+            <div class="card">
+                <img src="images/交通卡.jpg" alt="全国交通联合卡" class="goods-img">
+                <h3>全国互通交通卡</h3>
+                <p>上海交通联合卡，6种不同角色卡面，支持全国330+城市刷卡乘车。</p>
+            </div>
+        </div>
+
+        <!-- 分类4：积木模型&氛围灯饰 -->
+        <h2 class="cate-title">四、积木模型与氛围灯饰</h2>
+        <div class="card-list">
+            <div class="card">
+                <img src="images/积木.jpg" alt="哈奇喵的家积木" class="goods-img">
+                <h3>哈奇喵的家场景积木</h3>
+                <p>奇妙正版拼装积木，带透明防尘展示盒与室内灯光布景。</p>
+            </div>
+            <div class="card">
+                <img src="images/夜灯.jpg" alt="云朵硅胶小夜灯" class="goods-img">
+                <h3>云朵硅胶拍拍小夜灯</h3>
+                <p>柔和暖光硅胶材质，哈奇造型，卧室床头助眠氛围灯。</p>
+            </div>
+        </div>
+
+        <!-- 分类5：服饰穿搭（新增睡衣套装） -->
+        <h2 class="cate-title">五、服饰穿搭</h2>
+        <div class="card-list">
+            <div class="card">
+                <img src="images/T恤.png" alt="面包店印花短袖T恤" class="goods-img">
+                <h3>面包店联名短袖T恤</h3>
+                <p>奶米色纯棉宽松版型，面包造型三人主角印花，日常休闲百搭。</p>
+            </div>
+            <div class="card">
+                <img src="images/外套.png" alt="海岛刺绣连帽外套" class="goods-img">
+                <h3>海岛刺绣连帽拉链外套</h3>
+                <p>浅麻灰柔软毛圈面料，左胸简约海岛三人刺绣，春秋百搭开衫。</p>
+            </div>
+            <div class="card">
+                <img src="images/海獭T恤.png" alt="海獭Siren印花T恤" class="goods-img">
+                <h3>海獭Siren主题短袖T恤</h3>
+                <p>纯白色纯棉短袖，粉调全员海獭印花，甜美少女风日常上衣。</p>
+            </div>
+            <!-- 新增：哈奇满印家居睡衣两件套 -->
+            <div class="card">
+                <img src="images/睡衣.jpg" alt="哈奇猫满印翻领睡衣套装" class="goods-img">
+                <h3>哈奇猫满印翻领睡衣两件套</h3>
+                <p>浅蓝色顺滑亲肤面料，满印小八卡通头像，长袖长裤居家两件套，柔软舒适。</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Chiikawa 吉伊卡哇 可爱主题网站 &copy; 2026</p>
+    </footer>
+</body>
+</html>

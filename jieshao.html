@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>角色介绍 - 吉伊卡哇</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* 角色卡片图片专属样式 */
+        .card-img {
+            width: 100%;
+            max-width: 220px;
+            height: auto;
+            border-radius: 12px;
+            margin-bottom: 12px;
+        }
+        /* 电脑端一行4个布局 */
+        .card-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        /* 电脑端卡片宽度适配四列 */
+        .card {
+            background: white;
+            width: 210px;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            /* 全局平滑过渡动画 */
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
+        /* 鼠标悬浮：上浮 + 底色变浅粉 + 粉色柔光阴影 */
+        .card:hover {
+            transform: translateY(-7px);
+            background-color: #fff0f5;
+            box-shadow: 0 9px 20px rgba(255, 123, 167, 0.3);
+        }
+        /* 点击按压轻微收缩反馈 */
+        .card:active {
+            transform: translateY(-2px) scale(0.97);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        /* ========== 详情区域样式（响应式+淡入上浮动画） ========== */
+        .role-detail {
+            width: 92%;
+            max-width: 950px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(255,123,167,0.25);
+            display: none;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: opacity 0.35s ease, transform 0.35s ease;
+        }
+        .role-detail.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .detail-wrap {
+            display: flex;
+            gap: 35px;
+            align-items: flex-start;
+        }
+        .detail-img-box img {
+            width: 280px;
+            border-radius: 16px;
+        }
+        .detail-text {
+            flex: 1;
+        }
+        .detail-text h2 {
+            color: #ff7ba7;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .detail-text p {
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .detail-text ul {
+            padding-left: 0;
+            margin: 0;
+            list-style: none;
+            line-height: 1.75;
+            color: #444;
+        }
+        .detail-text li {
+            margin-bottom: 6px;
+            text-align: left;
+        }
+        .back-btn {
+            margin-top: 22px;
+            padding: 10px 22px;
+            background: #ff7ba7;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: 0.2s;
+        }
+        .back-btn:hover {
+            background: #ff588c;
+        }
+
+        /* ========== 平板适配（768px以下） ========== */
+        @media (max-width:768px){
+            .detail-wrap{
+                flex-direction: column;
+                align-items: center;
+            }
+            .detail-img-box img {
+                width: 240px;
+            }
+            .role-detail {
+                padding:25px;
+            }
+            .card {
+                width: 180px;
+            }
+        }
+        /* ========== 手机适配（480px以下） ========== */
+        @media (max-width:480px){
+            .detail-img-box img {
+                width: 180px;
+            }
+            .role-detail {
+                padding:18px;
+            }
+            .card {
+                width: calc(100% - 40px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Chiikawa • 吉伊卡哇</div>
+        <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="jieshao.html" class="active">角色</a></li>
+            <li><a href="gushi.html">故事</a></li>
+            <li><a href="zhoubian.html">周边</a></li>
+            <li><a href="login.html">登录</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <h1>🌟 全角色介绍 🌟</h1>
+
+        <!-- 卡片列表区域 -->
+        <div class="card-list" id="cardList">
+            <!-- 1.吉伊卡哇 ちいかわ -->
+            <div class="card" data-role="jiyi">
+                <img src="images/吉伊.jpg" alt="吉伊卡哇" class="card-img">
+                <h3>吉伊卡哇（ちいかわ）</h3>
+                <p>本作主角，胆小心软但骨子里很坚韧，十分珍视哈奇瓦力、乌萨奇两位挚友，再难的事都会咬牙努力坚持。</p>
+            </div>
+
+            <!-- 2.哈奇瓦力 ハチワレ -->
+            <div class="card" data-role="hachi">
+                <img src="images/小八.jpg" alt="哈奇瓦力" class="card-img">
+                <h3>哈奇瓦力（ハチワレ）</h3>
+                <p>元气小白熊，性格乐天开朗，运气常常很差却从不消极，永远热情对待生活，是吉伊最好的伙伴。</p>
+            </div>
+
+            <!-- 3.乌萨奇 うさぎ -->
+            <div class="card" data-role="wusaki">
+                <img src="images/乌萨奇.jpg" alt="乌萨奇" class="card-img">
+                <h3>乌萨奇（うさぎ）</h3>
+                <p>活力小兔子，擅长弹吉他，古灵精怪行动力拉满，总带着小伙伴去体验各种新奇冒险。</p>
+            </div>
+
+            <!-- 4.飞鼠 モモンガ -->
+            <div class="card" data-role="feishu">
+                <img src="images/飞鼠1.jpg" alt="飞鼠" class="card-img">
+                <h3>莫莫咖/飞鼠（モモンガ）</h3>
+                <p>以飞鼠为原型，由于“モモ”有桃子的意思，因此也曾以嘴衔桃子的形象出场。</p>
+            </div>
+
+            <!-- 5.粉螃蟹 カニちゃん -->
+            <div class="card" data-role="guben">
+                <img src="images/古本.jpg" alt="古本/螃蟹酱" class="card-img">
+                <h3>古本/螃蟹酱（カニちゃん）</h3>
+                <p>原型是鼹鼠，旧书店的老版，喜欢看书，和莫莫咖成为朋友后面貌被描绘出来，头戴莫莫咖送的发箍。</p>
+            </div>
+
+            <!-- 6.海獭前辈 ラッコ -->
+            <div class="card" data-role="haitan">
+                <img src="images/海獭.jpg" alt="海獭前辈" class="card-img">
+                <h3>海獭前辈（ラッコ）</h3>
+                <p>帅气可靠的前辈，实力强大有担当，很照顾后辈们，行事稳重，是大家很信赖的强者。</p>
+            </div>
+
+            <!-- 7.栗子馒头 栗まんじゅう -->
+            <div class="card" data-role="lizi">
+                <img src="images/栗子.jpg" alt="栗子馒头" class="card-img">
+                <h3>栗子馒头（栗まんじゅう）</h3>
+                <p>佛系慵懒的馒头角色，爱吃零食，性格温和散漫，没有什么烦恼，日常就是悠闲吃喝度日。</p>
+            </div>
+
+            <!-- 8.狮萨 シーサー -->
+            <div class="card" data-role="sisha">
+                <img src="images/狮萨.jpg" alt="狮萨" class="card-img">
+                <h3>狮萨（シーサー）</h3>
+                <p>活泼热血小狮子，元气满满爱热闹，性格直率热情，喜欢蹦蹦跳跳，活力永远用不完。</p>
+            </div>
+
+            <!-- 9.大强 -->
+            <div class="card" data-role="daqiang">
+                <img src="images/大强.jpg" alt="大强" class="card-img">
+                <h3>大强（でかつよ）</h3>
+                <p>能力强大但性格胆怯善良，遇到危机时会以音速逃离现场，并习惯向流星许愿。</p>
+            </div>
+
+            <!-- 10.那孩子 -->
+            <div class="card" data-role="nahai">
+                <img src="images/那孩子.jpg" alt="那孩子" class="card-img">
+                <h3>那孩子（アノコ）</h3>
+                <p>在大型讨伐中遭遇的巨大战斗奇美拉，有点怕青蛙。</p>
+            </div>
+
+            <!-- 11.手工铠 -->
+            <div class="card" data-role="kaizhan">
+                <img src="images/手工铠.jpg" alt="手工铠" class="card-img">
+                <h3>手工铠（ポシェットの鎧さん）</h3>
+                <p>以制作售卖小挎包和睡衣为职业，虽受上司劝阻仍坚持支持吉伊卡哇。</p>
+            </div>
+
+            <!-- 12.超级可口超人 -->
+            <div class="card" data-role="chaoren">
+                <img src="images/超级可口超人.jpg" alt="超级可口超人" class="card-img">
+                <h3>超级可口超人</h3>
+                <p>深受角色们喜爱的英雄偶像，是吉伊的偶像。</p>
+            </div>
+
+            <!-- 13.流星 -->
+            <div class="card" data-role="liuxing">
+                <img src="images/流星.jpg" alt="流星" class="card-img">
+                <h3>流星</h3>
+                <p>被看做愿望之星，出现在夜晚的天空，为角色们提供一个倾诉愿望的出口。</p>
+            </div>
+        </div>
+
+        <!-- 详情区块，默认隐藏 -->
+        <div class="role-detail" id="roleDetail">
+            <div class="detail-wrap">
+                <div class="detail-img-box">
+                    <img id="detailImg" src="" alt="">
+                </div>
+                <div class="detail-text">
+                    <h2 id="detailName"></h2>
+                    <p id="detailDesc"></p>
+                    <ul id="detailInfo"></ul>
+                    <button class="back-btn" id="backBtn">← 返回角色列表</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Chiikawa 吉伊卡哇 可爱主题网站 &copy; 2026</p>
+    </footer>
+
+<script>
+const roleData = {
+    jiyi: {
+        img:"images/吉伊.jpg",
+        name:"吉伊卡哇（ちいかわ）",
+        desc:"本作主角，胆小心软但骨子里很坚韧，十分珍视哈奇瓦力、乌萨奇两位挚友，再难的事都会咬牙努力坚持。",
+        info:["种类：仓鼠","性格：温柔胆小、内心坚韧","爱好：和伙伴一起冒险、品尝美食"]
+    },
+    hachi: {
+        img:"images/小八.jpg",
+        name:"哈奇瓦力（ハチワレ）",
+        desc:"元气猫，性格乐天开朗，运气常常很差却从不消极，永远热情对待生活，是吉伊最好的伙伴。",
+        info:["种类：八字花纹的猫，头顶和尾巴有蓝色八字纹，其余白色。","性格：乐观豁达、重情义","爱好：到处游玩、鼓励朋友"]
+    },
+    wusaki: {
+        img:"images/乌萨奇.jpg",
+        name:"乌萨奇（うさぎ）",
+        desc:"活力小兔子，擅长弹吉他，古灵精怪行动力拉满，总带着小伙伴去体验各种新奇冒险。",
+        info:["种类：黄色兔子，尾巴是白色大绒球","性格：跳脱活泼、脑洞大","爱好：弹吉他、探索新地方"]
+    },
+    feishu: {
+        img:"images/飞鼠1.jpg",
+        name:"莫莫咖/飞鼠（モモンガ）",
+        desc:"以飞鼠为原型，由于“モモ”有桃子的意思，因此也曾以嘴衔桃子的形象出场。",
+        info:["种类：飞鼠","性格：温柔乖巧","爱好：桃子、和古本相处"]
+    },
+    guben: {
+        img:"images/古本.jpg",
+        name:"古本/螃蟹酱（カニちゃん）",
+        desc:"原型是鼹鼠，旧书店的老版，喜欢看书，和莫莫咖成为朋友后面貌被描绘出来，头戴莫莫咖送的发箍。",
+        info:["种类：鼹鼠","性格：安静爱读书","爱好：看书、待在旧书店"]
+    },
+    haitan: {
+        img:"images/海獭.jpg",
+        name:"海獭前辈（ラッコ）",
+        desc:"帅气可靠的前辈，实力强大有担当，很照顾后辈们，行事稳重，是大家很信赖的强者。",
+        info:["种类：海獭","性格：稳重可靠、护短","爱好：修行、守护大家"]
+    },
+    lizi: {
+        img:"images/栗子.jpg",
+        name:"栗子馒头（栗まんじゅう）",
+        desc:"佛系慵懒的馒头角色，爱吃零食，性格温和散漫，没有什么烦恼，日常就是悠闲吃喝度日。",
+        info:["种类：栗子馒头","性格：佛系慵懒","爱好：吃零食、发呆休息"]
+    },
+    sisha: {
+        img:"images/狮萨.jpg",
+        name:"狮萨（シーサー）",
+        desc:"活泼热血小狮子，元气满满爱热闹，性格直率热情，喜欢蹦蹦跳跳，活力永远用不完。",
+        info:["种类：狮子","性格：热血直率","爱好：玩耍、热闹的聚会"]
+    },
+    daqiang: {
+        img:"images/大强.jpg",
+        name:"大强（でかつよ）",
+        desc:"能力强大但性格胆怯善良，遇到危机时会以音速逃离现场，并习惯向流星许愿。",
+        info:["种类：奇美拉","性格：胆小、本性善良","爱好：向流星许愿"]
+    },
+    nahai: {
+        img:"images/那孩子.jpg",
+        name:"那孩子（アノコ）",
+        desc:"在大型讨伐中遭遇的巨大战斗奇美拉，有点怕青蛙。",
+        info:["种类：奇美拉","性格：神秘","弱点：害怕青蛙"]
+    },
+    kaizhan: {
+        img:"images/手工铠.jpg",
+        name:"手工铠（ポシェットの鎧さん）",
+        desc:"以制作售卖小挎包和睡衣为职业，虽受上司劝阻仍坚持支持吉伊卡哇。",
+        info:["身份：铠甲商人","性格：温柔仗义","爱好：制作包包、睡衣"]
+    },
+    chaoren: {
+        img:"images/超级可口超人.jpg",
+        name:"超级可口超人",
+        desc:"深受角色们喜爱的英雄偶像，是吉伊的偶像。",
+        info:["身份：英雄偶像","性格：正义帅气","爱好：拯救大家"]
+    },
+    liuxing: {
+        img:"images/流星.jpg",
+        name:"流星",
+        desc:"被看做愿望之星，出现在夜晚的天空，为角色们提供一个倾诉愿望的出口。",
+        info:["身份：愿望之星","出现时间：夜晚","作用：倾听、承载愿望"]
+    }
+};
+
+const cardList = document.getElementById('cardList');
+const roleDetail = document.getElementById('roleDetail');
+const detailImg = document.getElementById('detailImg');
+const detailName = document.getElementById('detailName');
+const detailDesc = document.getElementById('detailDesc');
+const detailInfo = document.getElementById('detailInfo');
+const backBtn = document.getElementById('backBtn');
+const cards = document.querySelectorAll('.card');
+
+cards.forEach(card=>{
+    card.onclick = function(){
+        let key = this.dataset.role;
+        let data = roleData[key];
+        detailImg.src = data.img;
+        detailImg.alt = data.name;
+        detailName.innerText = data.name;
+        detailDesc.innerText = data.desc;
+        detailInfo.innerHTML = "";
+        data.info.forEach(item=>{
+            let li = document.createElement('li');
+            li.innerText = item;
+            detailInfo.appendChild(li);
+        })
+        cardList.style.display = "none";
+        roleDetail.style.display = "block";
+        setTimeout(()=>{
+            roleDetail.classList.add('show');
+        },30);
+    }
+})
+
+backBtn.onclick = function(){
+    roleDetail.classList.remove('show');
+    setTimeout(() => {
+        roleDetail.style.display = "none";
+        cardList.style.display = "flex";
+    }, 250);
+}
+</script>
+</body>
+</html>
